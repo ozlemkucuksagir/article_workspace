@@ -11,8 +11,8 @@ import re
 # Chrome WebDriver'ı başlatma
 driver = webdriver.Chrome()
 
-main_url = 'https://www.tatilsepeti.com/yurtici-oteller?ara=oda:1;tarih:19.07.2024,24.07.2024;musait:true&filtreler=bolge:8,24,60,101'
-base_url = 'https://www.tatilsepeti.com/yurtici-oteller?sayfa={}&filtreler=bolge:8,24,60,101&ara=oda:1;tarih:19.07.2024,24.07.2024;musait:true'
+main_url = 'https://www.tatilsepeti.com/yurtici-oteller?ara=oda:1;tarih:28.07.2024,01.08.2024;musait:true&filtreler=bolge:8,24,60,101'
+base_url = 'https://www.tatilsepeti.com/yurtici-oteller?sayfa={}&filtreler=bolge:8,24,60,101&ara=oda:1;tarih:28.07.2024,01.08.2024;musait:true'
 # SQLite veritabanına bağlanma
 # PostgreSQL veritabanına bağlanma
 conn = psycopg2.connect(
