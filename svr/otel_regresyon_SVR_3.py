@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import sqlite3
 
 # Veritabanınızdan verileri çekin
-df = pd.read_csv("duzenlenmis_otel_veritabani_DB4.csv")
+df = pd.read_csv("D:/Projects/Github/article_workspace/svr/duzenlenmis_otel_veritabani_DB4.csv")
 
 
 #df.dropna(inplace=True)
@@ -19,7 +19,7 @@ df.fillna(df.mode().iloc[0], inplace=True)
 print(df)
 
 # Eğitim ve test setleri
-X = df.drop(['otel_ad', 'fiyat','imageURL', 'bolge', 'id'], axis=1) # Bağımsız değişkenler
+X = df.drop(['otel_ad', 'fiyat','imageurl', 'bolge', 'id'], axis=1) # Bağımsız değişkenler
 y = df['fiyat'] # Bağımlı değişken
 
 

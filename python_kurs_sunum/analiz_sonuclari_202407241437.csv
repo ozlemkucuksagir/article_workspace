@@ -1,0 +1,58 @@
+"id","otel_id","otel_ad","yorum","opion","score"
+1,1,Adam Eve,"Pozitif yonu, Animasyon ve eglence cok basarili. Oda konforu harika.",olumlu,0.9968374
+2,1,Adam Eve,"Negatif yonu, Personel sayisi yetersiz. Hijyeni yeterince onem verilmiyor. Snack ve bar sayisi yetersiz.",olumsuz,0.9980152
+3,1,Adam Eve,"Pozitif yonu, Yetiskin otel oldugu icin cocuk seslerinin olmamasi iyiydi. Personellerin hepsi cok guzel davraniyor.",olumlu,0.9987403
+4,1,Adam Eve,"Negatif yonu, Pek olumsuz yonleri yoktu fiyat performans oteli denebilir.",olumsuz,0.7923431
+5,1,Adam Eve,"Pozitif yonu, Cocuk olmamasi",olumlu,0.99691904
+6,1,Adam Eve,"Negatif yonu, Yemek kalitesi daha iyi olabilir",olumsuz,0.99210054
+7,1,Adam Eve,"Pozitif yonu, Eglencesi ortam ickiler odanin rahatligi sampanya ikrami hepsi harika",olumlu,0.9985598
+8,1,Adam Eve,"Negatif yonu, Tek olumsuz yonu f&b de personel mi eksik bilmiyorum ama yetismekte zorlaniyorlar icki almak icin hep bara gitmeme ragmen en az yarim saat sira bekledim cogunlukla ki 3.gidisim hep bu sorun vardi .",olumsuz,0.9952197
+9,1,Adam Eve,"Pozitif yonu, Eglence konum Oda manzaralari",olumlu,0.99758905
+10,1,Adam Eve,"Negatif yonu, Hizmet yetersizdi Fb personeli cok yetersiz Yiyecek cesidi azalmisti",olumsuz,0.99734
+11,2,Adenya Hotel Resort,"Pozitif yonu, Tum calisanlar iyi niyetli kibar ve cozum odakliydi. Ozellikle havuz barda calisan Enes Bey'e ilgi ve alakasindan dolayi cok tesekkur ederim :)",olumlu,0.9989666
+12,2,Adenya Hotel Resort,"Pozitif yonu, Hersey cok guzeldi",olumlu,0.9978357
+13,2,Adenya Hotel Resort,"Pozitif yonu, Konum cok guzel",olumlu,0.99786586
+14,2,Adenya Hotel Resort,"Pozitif yonu, Sahane bir otel, gecen sene gitmistim, yine gittim",olumlu,0.99906063
+15,3,Adin Beach Hotel,"Pozitif yonu, Calisanlar cok guler yuzlu ve ilgililerdi animasyon ekibi cok iyiydi",olumlu,0.998727
+16,3,Adin Beach Hotel,"Negatif yonu, Soguk kahve boyle bir tesiste nasil olmaz anlamadim onun disinda iyiydi",olumsuz,0.9562769
+17,3,Adin Beach Hotel,"Pozitif yonu, Personel cok guler yuzlu ve iyilerdi, onca yogunluga ragmen samimi ve yardimsever, temizlik de cok iyiydi. Bir tane bile sinek gormedik diyebilirim",olumlu,0.99897665
+18,3,Adin Beach Hotel,"Pozitif yonu, Tum hizmetlerden cok memnun kaldik",olumlu,0.99871767
+19,4,Altin Yunus Hotel Spa  Cesme,"Pozitif yonu, Denizi mukemmel Personel mukemmel Temizlik mukemmel Spa mukemmel",olumlu,0.9986897
+20,4,Altin Yunus Hotel Spa  Cesme,"Negatif yonu, Sosyal aktivite sifir Fitnes kapanis 19.00  Aksam otelde bosuna durmayin hic bir sey yok",olumsuz,0.99689287
+21,4,Altin Yunus Hotel Spa  Cesme,"Pozitif yonu, Cocuklar icin etkinlikler. Iyi hizmet ve duzgun personel. Termal havuz. Pinar urunleri kullanilmasi. Ekstra fiyatlarinin uygun olmasi.",olumlu,0.9979132
+22,4,Altin Yunus Hotel Spa  Cesme,"Negatif yonu, Yemeklerde icecek olmamasi.",olumsuz,0.99824893
+23,5,Belconti Resort Hotel,"Pozitif yonu, Deniz,havuz,kaydiraklar yeterli ve temiz.Restoran ogle yemekleri disindaki yemekler yeterli,lezzetli ve guzel.Oda temizligi yeterli.Genel anlamda guzel bir otel.",olumlu,0.99682134
+24,5,Belconti Resort Hotel,"Negatif yonu, Ogle yemek cesitleri yetersiz.Havuz ve diger aktivite tanitim fazla yok ve yetersiz.",olumsuz,0.9965168
+25,9,Doria Hotel Bodrum,"Pozitif yonu, Tesis temiz, odalar konforlu, personel saygili ve guler yuzlu.",olumlu,0.9986325
+26,11,Hapimag Resort Sea Garden,"Pozitif yonu, Doga ile ic ice guzel plaji cok iyi",olumlu,0.9988455
+27,11,Hapimag Resort Sea Garden,"Negatif yonu, Yemekler benim icin kotu iyilestirilmesi lazim",olumsuz,0.9985875
+28,11,Hapimag Resort Sea Garden,"Negatif yonu, Yemekler berbatti",olumsuz,0.9972066
+29,11,Hapimag Resort Sea Garden,"Pozitif yonu, Konum, deniz, doga cok guzel. Yemekler genellikle lezzetliydi. Yemek surelerinin uzun olmasi kosusturmadan rahat yemenizi sagliyor.",olumlu,0.99788696
+30,11,Hapimag Resort Sea Garden,"Negatif yonu, Tek noktada yemek oldugu icin erisim sorunlu. En azindan snack (gozleme, burger, kurabiye v.b.) tarzi yiyecekler sahil bolumunde de olmali. 5 cayi icin sahilden lobby'e gitmek gerekiyor:( Restaurant havalandirmasi iyilestirilmeli, yemek sonrasi kiyafetlere yemek kokusu siniyor. Aksamlari eglenceleri cesitlendirilebilir.",olumsuz,0.9959179
+31,11,Hapimag Resort Sea Garden,"Pozitif yonu, Calisanlar cok ilgili ve guler yuzlu idi. Otel nezih ve guzeldi. Cok guzel tatil gecirdik. Deniz ve havuz cok guzel. Yemekler harika.",olumlu,0.99836636
+32,11,Hapimag Resort Sea Garden,"Negatif yonu, Aksam etkinligi biraz daha dolu olabilirdi. 4 gunun 2si iyi ikisi vasatti.",olumsuz,0.9936229
+33,17,Marti Resort Hotel,"Pozitif yonu, Yemek cesitleri ve lezzeti fena  sayilmazdi. Konumu  guzeldi. Animasyonlar iyiydi.",olumlu,0.9983097
+34,17,Marti Resort Hotel,"Negatif yonu, Hijyen kotuydu. Kahvaltida sunulan ceri domatesler resmen yikanmamisti. Bahcede ve restoranda kakalaklar dolasiyordu. Yine restoranda ucusan karasinekler cok rahatsiz ediciydi. Oda temizligi bazen iyi bazen ozensizdi. Plaja giden yolun tam ortasina konumlandirilan  mazgallar her gidiste ve donuste kanalizasyon kokusuna maruz birakiyordu. Tenis kortu, plaj voleybolu vb. olanaklar yoktu. Odadaki modem calismiyordu. 2 gun interneti kullanamadik. Klimalar filtrelerinin duzenli temizlendiginden de supheliyim. Burun akintisi, oksurme vb. sebep oldu..",olumsuz,0.9936924
+35,17,Marti Resort Hotel,"Pozitif yonu, Otelin konumu, denizi, personeli mukemmeldi.",olumlu,0.9975952
+36,17,Marti Resort Hotel,"Negatif yonu, Genc kusak icin animasyon zayif denilebilir.",olumsuz,0.99652135
+37,17,Marti Resort Hotel,"Pozitif yonu, Calisan personeller guler yuzlu elinden geleni yapiyorlardi odalar gunluk temizleniyordu havuzlarda ayni sekilde temizleniyordu",olumlu,0.99904567
+38,17,Marti Resort Hotel,"Negatif yonu, Yemekler konusunda cok zayiflar karnimiz hic doymadi maalesef dogru duzgun et yemekleri tavuk yemekleri meyve olarak 4 cesitten fazlasi yoktu ve SEZLONG lari gosteren hic bir kamera yoktu gozlugum calindi",olumsuz,0.9931644
+39,17,Marti Resort Hotel,"Pozitif yonu, Otelin konumu",olumlu,0.99817115
+40,17,Marti Resort Hotel,"Negatif yonu, Otopark sikintisi var. Arac park edis ve arabayi parkdan musterinin kendisi yapiyor. Musteriye arabayi park icin kimse yardim etmiyor..otel icinde musterinin kendisi park yeri ariyor!!! Ayrica sahilin icinde icecek servisi yapan bi kisim yok!! Sahilden ciktiktan sonra otelin bahcesine girip icecek alip sahile tekrar donuluyor, mesafesi uzak!! Icecek servisi yapan kismin sahil icinde olmasi daha uygun olur. Ogleden sonra 12 -16 arasi Sneakbarda sunulan atistirma cesitleri cok az. Sneakbarin bitis suresi 16:00 dan 17:00 cikarilmasi dogru olur. Aksam patiseri bolumunun suresi bitis suresi 23:00 den  00: 00 ye cikarilmasi daha iyi olur. Sahile denizin icine yikanma ve guneslenme icin ahsap iskele yapilmasi guzel olur. Bu eksikliklere karsin oda fiyatlari cok fazla..",olumsuz,0.84180045
+41,21,Rizom Beach Hotel Kumluca,"Pozitif yonu, Otel yemekleri guzeldi fakat balayi cifti olmamiza ragmen hic bir arti yani yoktu",olumlu,0.9987616
+42,21,Rizom Beach Hotel Kumluca,"Negatif yonu, Oda temizligi sifir . odayi temizlemesi icin oda temizligi cagiriyorsunuz nevresimi ters cevirip odada hic birsey yapmadan geri donuyor hijyen konusunda begenmedim",olumsuz,0.9987577
+43,21,Rizom Beach Hotel Kumluca,"Pozitif yonu, DENIZ GUZEL FAKAT DALGALI ODA TEMIZLIGI IYI YEMEKLER GUZEL PERSONELLER ILGILI",olumlu,0.9986017
+44,21,Rizom Beach Hotel Kumluca,"Negatif yonu, KARMA HAVUZ KUCUK VE KIRLI  DIS MEKANLARDA SAAT VE SICAKLIK OLCER YOK (HAVUZLAR DAHIL)",olumsuz,0.99426913
+45,21,Rizom Beach Hotel Kumluca,"Pozitif yonu, Fiyat olarak uygun",olumlu,0.99788654
+46,21,Rizom Beach Hotel Kumluca,"Negatif yonu, Yemek cesidi az",olumsuz,0.99649256
+47,21,Rizom Beach Hotel Kumluca,"Negatif yonu, Yemek cesitleri cok az..havuz yetersiz..havuz kenarinda sezlonglar yetersiz yer bulmakta zorlaniyorduk",olumsuz,0.9969471
+48,23,Royal Dragon Side,"Pozitif yonu, ODALAR GUZEL, YEMEKLER HARIKA",olumlu,0.99866134
+49,23,Royal Dragon Side,"Negatif yonu, FOTOGRAFLARDAKI AQUAPARK YOKTU. BIZ ONA GORE SECTIK. BU BIZI MEMNUN ETMEDI. FOTOGRAFLARI GUNCELLEMEMISLER VS. BU BAHANE DEGIL. YANLIS OLDU",olumsuz,0.9971715
+50,24,Salmakis Resort Spa,"Pozitif yonu, Havuz ve deniz",olumlu,0.99562496
+51,24,Salmakis Resort Spa,"Negatif yonu, Deniz in karsisinda bulunan yat ve teknelerin mazot ve copleri direk denizi pisletiyor mazot icinde yuzmek guzel olmuyor",olumsuz,0.99894184
+52,24,Salmakis Resort Spa,"Pozitif yonu, Tesekkur ederiz??",olumlu,0.9968982
+53,24,Salmakis Resort Spa,"Negatif yonu, Tesekkur ederiz ??",olumsuz,0.9925358
+54,24,Salmakis Resort Spa,"Pozitif yonu, Bardakci koyu muhtesem, otelin odalari rahat ve konforlu. Personel yardimsever ve cozum odakli.",olumlu,0.9966493
+55,24,Salmakis Resort Spa,"Negatif yonu, Yemekler vasat",olumsuz,0.9976659
+56,24,Salmakis Resort Spa,"Pozitif yonu, Yemekleri muhtesem, personel cok ilgili.",olumlu,0.9979375
+57,24,Salmakis Resort Spa,"Negatif yonu, Odamiz kotuydu acikcasi, 3 kisilik rezervasyon icin verilen oda cok kucuktu esyalar 2 kisi icin duzenlenmisti. Aksam aktivite canli muzik daha sok olsa daha iyi olabilirdi.",olumsuz,0.99625164
