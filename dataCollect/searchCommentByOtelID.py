@@ -42,6 +42,10 @@ search_url = 'https://www.tatilsepeti.com/'
 # Her bir otel adı için yorumları çekme
 for otel_ad_tuple in icotel_ad_list:
     otel_ad = otel_ad_tuple[0]
+
+    # Otel adından otel_id'yi çekme
+    cursor.execute('SELECT id FROM hotels_data WHERE otel_ad = %s', (otel_ad,))
+    otel_id = cursor.fetchone()[0]
     
     # Siteye gitme
     driver.get(search_url)
@@ -70,17 +74,19 @@ for otel_ad_tuple in icotel_ad_list:
         yorum_divler = yorum_soup.select('ul.review-list li.review-item div.content')
 
         for yorum_div in yorum_divler:
-            pozitif_yorumlar = yorum_div.select('p.review-pos')
-            for pozitif_yorum in pozitif_yorumlar:
-                yorum_text = pozitif_yorum.get_text(strip=True).replace('\n', ' ')
-                yorum_text = f"Pozitif yönü, {yorum_text}"
-                cursor.execute('INSERT INTO otel_comment (otel_ad, yorum) VALUES (%s, %s)', (otel_ad, yorum_text))
+                    # Pozitif yorumları çekme
+                    pozitif_yorumlar = yorum_div.select('p.review-pos')
+                    for pozitif_yorum in pozitif_yorumlar:
+                        yorum_text = pozitif_yorum.get_text(strip=True).replace('\n', ' ')
+                        yorum_text = f"Pozitif yönü, {yorum_text}"
+                        cursor.execute('INSERT INTO otel_comment (otel_id, otel_ad, yorum) VALUES (%s, %s, %s)', (otel_id, otel_ad, yorum_text))
 
-            negatif_yorumlar = yorum_div.select('p.review-neg')
-            for negatif_yorum in negatif_yorumlar:
-                yorum_text = negatif_yorum.get_text(strip=True).replace('\n', ' ')
-                yorum_text = f"Negatif yönü, {yorum_text}"
-                cursor.execute('INSERT INTO otel_comment (otel_ad, yorum) VALUES (%s, %s)', (otel_ad, yorum_text))
+                    # Negatif yorumları çekme
+                    negatif_yorumlar = yorum_div.select('p.review-neg')
+                    for negatif_yorum in negatif_yorumlar:
+                        yorum_text = negatif_yorum.get_text(strip=True).replace('\n', ' ')
+                        yorum_text = f"Negatif yönü, {yorum_text}"
+                        cursor.execute('INSERT INTO otel_comment (otel_id, otel_ad, yorum) VALUES (%s, %s, %s)', (otel_id, otel_ad, yorum_text))
 
     except Exception as e:
         print(f"{otel_ad} için yorumları çekerken hata oluştu: {e}")
