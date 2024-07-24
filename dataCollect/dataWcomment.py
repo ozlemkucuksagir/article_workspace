@@ -84,7 +84,8 @@ cursor.execute('''
 
 
 # Ana sayfa ve diğer sayfaları ziyaret etme
-for page_number in range(1, 25):  #53
+for page_number in range(7, 23):  #53
+    print(page_number)
     
     if page_number == 1:
         page_url = main_url
@@ -95,7 +96,7 @@ for page_number in range(1, 25):  #53
     
 
     # Sayfanın tamamen yüklendiğinden emin olmak için bir süre bekleyin (Selenium'un bekleme fonksiyonları kullanılır)
-    WebDriverWait(driver, 120).until(EC.presence_of_element_located((By.CLASS_NAME, 'discount-price')))
+    WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.CLASS_NAME, 'discount-price')))
 
     # Sayfanın tamamını kaydırmak için Javascript kullanıyoruz.
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
@@ -134,7 +135,7 @@ for page_number in range(1, 25):  #53
             print("Reklam penceresi bulunamadı veya kapatılamadı.")
 
         # Sayfanın tamamen yüklendiğinden emin olmak için bir süre bekleyin (Selenium'un bekleme fonksiyonları kullanılır)
-        WebDriverWait(driver, 120).until(EC.presence_of_element_located((By.CLASS_NAME, 'hotel')))
+        WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.CLASS_NAME, 'hotel')))
 
         otel_content = driver.page_source
         otel_soup = BeautifulSoup(otel_content, 'html.parser')
@@ -223,7 +224,7 @@ for page_number in range(1, 25):  #53
             # Sayfanın tamamen yüklendiğinden emin olmak için bir süre bekleyin (Selenium'un bekleme fonksiyonları kullanılır)
 
             try:
-                WebDriverWait(driver, 100).until(EC.presence_of_element_located((By.CLASS_NAME, 'score__right')))
+                WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.CLASS_NAME, 'score__right')))
                 # Score bilgisini çekme
                 score = otel_soup.find('div', class_='score__right')
                 if score:
