@@ -28,7 +28,7 @@ cursor = conn.cursor()
 
 # Tablo oluşturma (Eğer tablo henüz oluşturulmamışsa)
 cursor.execute('''
-    CREATE TABLE IF NOT EXISTS otel1 (
+    CREATE TABLE IF NOT EXISTS oteller (
         "id" SERIAL PRIMARY KEY,
         "otel_ad" TEXT,       
         "fiyat" TEXT, 
@@ -74,9 +74,9 @@ cursor.execute('''
 
 
 cursor.execute('''
-    CREATE TABLE IF NOT EXISTS otel_yorumlar (
+    CREATE TABLE IF NOT EXISTS otel_comments (
         "id" SERIAL PRIMARY KEY,
-        "otel_id" INTEGER REFERENCES otel1(id) ON DELETE CASCADE,
+        "otel_id" INTEGER REFERENCES oteller(id) ON DELETE CASCADE,
         "otel_ad" TEXT,
         "yorum" TEXT
     )
@@ -106,7 +106,7 @@ for page_number in range(7, 23):  #53
     content = driver.page_source
     soup = BeautifulSoup(content, 'html.parser')
 
-    # Ana sayfadaki otel1 URL'lerini ve fiyatlarını bulma
+    # Ana sayfadaki oteller URL'lerini ve fiyatlarını bulma
     otel_infos = []
     hotel_list = soup.find('div', id='HotelList')  # id="HotelList" olan div'i bul
     otel_names = hotel_list.find_all('div', class_='panel-heading')
@@ -120,7 +120,7 @@ for page_number in range(7, 23):  #53
         fiyat = fiyat.text.strip()
         otel_infos.append((otel_ad, fiyat, otel_url))
 
-    # Her bir otel1 detay sayfasından verileri çekme
+    # Her bir oteller detay sayfasından verileri çekme
     for otel_info in otel_infos:
         otel_ad, fiyat, otel_url = otel_info#    #close-button-1454703513200 > span    
         driver.get(otel_url)
@@ -140,14 +140,14 @@ for page_number in range(7, 23):  #53
         otel_content = driver.page_source
         otel_soup = BeautifulSoup(otel_content, 'html.parser')
 
-        # Veritabanında aynı otel1 adı var mı kontrol etme
-        cursor.execute('SELECT * FROM otel1 WHERE otel_ad = %s', (otel_ad,))
+        # Veritabanında aynı oteller adı var mı kontrol etme
+        cursor.execute('SELECT * FROM oteller WHERE otel_ad = %s', (otel_ad,))
         existing_data = cursor.fetchone()
 
         if existing_data is None:
             # Veritabanına ekleme
-            cursor.execute('INSERT INTO otel1 (otel_ad, fiyat) VALUES (%s, %s)', (otel_ad, fiyat))
-            cursor.execute('SELECT id FROM otel1 WHERE otel_ad = %s', (otel_ad,))
+            cursor.execute('INSERT INTO oteller (otel_ad, fiyat) VALUES (%s, %s)', (otel_ad, fiyat))
+            cursor.execute('SELECT id FROM oteller WHERE otel_ad = %s', (otel_ad,))
             otel_id = cursor.fetchone()[0]
 
 
@@ -184,14 +184,14 @@ for page_number in range(7, 23):  #53
             else:
                 fiyat_araligi = "+33000"
 
-            cursor.execute('UPDATE otel1 SET "Fiyat Aralığı" = %s WHERE otel_ad = %s', (fiyat_araligi, otel_ad))
+            cursor.execute('UPDATE oteller SET "Fiyat Aralığı" = %s WHERE otel_ad = %s', (fiyat_araligi, otel_ad))
 
 
-            # otel1 adını çekme
+            # oteller adını çekme
             otel_region = otel_soup.find('h1', class_='hotel__name pull-left')
-            otel_ad = otel_region.text.strip() if otel_region else 'Bilinmeyen otel1 Adı'
+            otel_ad = otel_region.text.strip() if otel_region else 'Bilinmeyen oteller Adı'
                     
-            # otel1 Özellikleri başlığı altındaki verileri çekme
+            # oteller Özellikleri başlığı altındaki verileri çekme
             konum_bilgileri = otel_soup.find('div', class_='row location-info')
             otel_ozellikleri = otel_soup.find('div', class_='row room-spect mt-15') 
             ucretsiz_aktiviteler = otel_soup.find('div', class_='row free-activities')
@@ -209,7 +209,7 @@ for page_number in range(7, 23):  #53
                 resim_url = "Resim bulunamadı"
 
             # Veritabanına resim URL'sini kaydetme
-            cursor.execute('UPDATE otel1 SET "imageURL" = %s WHERE otel_ad = %s', (resim_url, otel_ad))
+            cursor.execute('UPDATE oteller SET "imageURL" = %s WHERE otel_ad = %s', (resim_url, otel_ad))
 
 
  
@@ -220,7 +220,7 @@ for page_number in range(7, 23):  #53
             if bölge:
                 bölge_text = bölge.get_text(strip=True).split('Haritada Görüntüle')[0:]
                 bölge_metni = ' '.join(bölge_text)
-                cursor.execute('UPDATE otel1 SET "Bölge" = %s WHERE otel_ad = %s', (bölge_metni, otel_ad))
+                cursor.execute('UPDATE oteller SET "Bölge" = %s WHERE otel_ad = %s', (bölge_metni, otel_ad))
             # Sayfanın tamamen yüklendiğinden emin olmak için bir süre bekleyin (Selenium'un bekleme fonksiyonları kullanılır)
 
             try:
@@ -235,11 +235,11 @@ for page_number in range(7, 23):  #53
                 score_text = None
 
             # Veritabanına kaydetme
-            cursor.execute('UPDATE otel1 SET "score" = %s WHERE otel_ad = %s', (score_text, otel_ad))
+            cursor.execute('UPDATE oteller SET "score" = %s WHERE otel_ad = %s', (score_text, otel_ad))
 
 
             if konum_bilgileri:
-                cursor.execute("SELECT column_name FROM information_schema.columns WHERE table_name = 'otel1'")
+                cursor.execute("SELECT column_name FROM information_schema.columns WHERE table_name = 'oteller'")
                 column_names = [row[0] for row in cursor.fetchall()]
                 konum_tablosu = konum_bilgileri.find_next('table')
                 if konum_tablosu:
@@ -258,17 +258,17 @@ for page_number in range(7, 23):  #53
                                     havaalani_adi_search = re.search(r'([^0-9]+)', deger)
                                     havaalani_adi = havaalani_adi_search.group(0) if havaalani_adi_search else "No Info"
                                     uzaklik_metni = f"{uzaklik} km, {havaalani_adi}"
-                                    cursor.execute('UPDATE otel1 SET "Hava Alanına Uzaklığı" = %s WHERE otel_ad = %s', (uzaklik_metni, otel_ad))
+                                    cursor.execute('UPDATE oteller SET "Hava Alanına Uzaklığı" = %s WHERE otel_ad = %s', (uzaklik_metni, otel_ad))
                                 else:
                                     deger = deger if deger.strip() else "No Info"
-                                    cursor.execute(f'UPDATE otel1 SET "{baslik}" = %s WHERE otel_ad = %s', (deger, otel_ad))
+                                    cursor.execute(f'UPDATE oteller SET "{baslik}" = %s WHERE otel_ad = %s', (deger, otel_ad))
 
-            # otel1 Özellikleri başlığı altındaki verileri çekme
+            # oteller Özellikleri başlığı altındaki verileri çekme
             for ozellik in [otel_ozellikleri, ucretsiz_aktiviteler, ucretli_aktiviteler, cocuk_aktiviteleri]:
                 if ozellik:
                     otel_ozellikleri_listesi = ozellik.find('ul')
                     if otel_ozellikleri_listesi:
-                        cursor.execute("SELECT column_name FROM information_schema.columns WHERE table_name = 'otel1'")
+                        cursor.execute("SELECT column_name FROM information_schema.columns WHERE table_name = 'oteller'")
                         column_names = [row[0] for row in cursor.fetchall()]
 
 
@@ -285,10 +285,10 @@ for page_number in range(7, 23):  #53
                                     if ozellik_adi in column_names:
                                         adet_str = ozellik[adet_firstindex+1:adet_lastindex].strip()
                                         adet = adet_str
-                                        cursor.execute(f'UPDATE otel1 SET "{ozellik_adi}" = %s WHERE otel_ad = %s', (adet, otel_ad))
+                                        cursor.execute(f'UPDATE oteller SET "{ozellik_adi}" = %s WHERE otel_ad = %s', (adet, otel_ad))
                             else: 
                                 if ozellik in column_names:                                           
-                                    cursor.execute(f'UPDATE otel1 SET "{ozellik}" = %s WHERE otel_ad = %s', (adet, otel_ad))
+                                    cursor.execute(f'UPDATE oteller SET "{ozellik}" = %s WHERE otel_ad = %s', (adet, otel_ad))
 
             # Reklam penceresini kapatma
             try:
@@ -320,15 +320,15 @@ for page_number in range(7, 23):  #53
                     pozitif_yorumlar = yorum_div.select('p.review-pos')
                     for pozitif_yorum in pozitif_yorumlar:
                         yorum_text = pozitif_yorum.get_text(strip=True).replace('\n', ' ')
-                        yorum_text = f"Pozitif yönü, {yorum_text}"
-                        cursor.execute('INSERT INTO otel_yorumlar (otel_id, otel_ad, yorum) VALUES (%s, %s, %s)', (otel_id, otel_ad, yorum_text))
+                        #yorum_text = f"Pozitif yönü, {yorum_text}"
+                        cursor.execute('INSERT INTO otel_comments (otel_id, otel_ad, yorum) VALUES (%s, %s, %s)', (otel_id, otel_ad, yorum_text))
 
                     # Negatif yorumları çekme
                     negatif_yorumlar = yorum_div.select('p.review-neg')
                     for negatif_yorum in negatif_yorumlar:
                         yorum_text = negatif_yorum.get_text(strip=True).replace('\n', ' ')
-                        yorum_text = f"Negatif yönü, {yorum_text}"
-                        cursor.execute('INSERT INTO otel_yorumlar (otel_id, otel_ad, yorum) VALUES (%s, %s, %s)', (otel_id, otel_ad, yorum_text))
+                        #yorum_text = f"Negatif yönü, {yorum_text}"
+                        cursor.execute('INSERT INTO otel_comments (otel_id, otel_ad, yorum) VALUES (%s, %s, %s)', (otel_id, otel_ad, yorum_text))
 
             except Exception as e:
                 print(f"Yorumları çekerken hata oluştu: {e}")

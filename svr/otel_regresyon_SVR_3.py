@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import sqlite3
 
 # Veritabanınızdan verileri çekin
-df = pd.read_csv("D:/Projects/Github/article_workspace/svr/duzenlenmis_otel_veritabani_DB4.csv")
+df = pd.read_csv("svr\oteller.csv")
 
 
 #df.dropna(inplace=True)

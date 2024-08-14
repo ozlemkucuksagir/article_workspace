@@ -12,12 +12,12 @@ cursor = conn.cursor()
 
 # SQL sorgusunu tanımlayın
 sql_query = """
-DELETE FROM hotels_data
+DELETE FROM otel1
 WHERE ctid NOT IN (
   SELECT min_ctid
   FROM (
     SELECT MIN(ctid) AS min_ctid
-    FROM hotels_data
+    FROM otel1
     GROUP BY id
     HAVING COUNT(*) > 1
   ) subquery
