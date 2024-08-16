@@ -1,5 +1,4 @@
 import time
-
 from selenium.webdriver.common.keys import Keys
 from selenium import webdriver
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
@@ -67,13 +66,8 @@ for otel_ad_tuple in icotel_ad_list:
 
         # Sayfa numarası takibi
         current_page = 1
-
         while True:
             # Sayfa kaynağını al ve yorumları işle
-            WebDriverWait(driver, 10).until(
-                EC.presence_of_element_located((By.CLASS_NAME, 'pagination-container'))
-            )
-            
             yorum_content = driver.page_source
             yorum_soup = BeautifulSoup(yorum_content, 'html.parser')
             yorum_divler = yorum_soup.select('ul.review-list li.review-item div.content')
@@ -89,7 +83,6 @@ for otel_ad_tuple in icotel_ad_list:
 
             # Yorumları veritabanına ekleme
             for otel_id, otel_ad, yorum_text in page_yorumlar:
-                
                 cursor.execute('SELECT 1 FROM otel_comment WHERE otel_id = %s AND yorum = %s', (otel_id, yorum_text))
                 if not cursor.fetchone():
                     cursor.execute('INSERT INTO otel_comment (otel_id, otel_ad, yorum) VALUES (%s, %s, %s)', (otel_id, otel_ad, yorum_text))
@@ -101,19 +94,26 @@ for otel_ad_tuple in icotel_ad_list:
             # Pagination kısmını bulma
             pagination = driver.find_elements(By.CSS_SELECTOR, 'ul.pagination li a')
 
-            next_page_found = False
-            for page in pagination:
-                # Mevcut sayfayı atlayarak bir sonraki sayfaya git
-                if page.text.isdigit() and int(page.text) == current_page + 1:
-                    page.click()
-                    print("*************YENİ SAYFAYA GEÇİLDİ***********")
-                    current_page += 1
-                    time.sleep(2)  # Sayfanın yüklenmesi için bekleme süresi
-                    next_page_found = True
-                    break  # Bir sonraki sayfaya geçtikten sonra çık
+            if pagination:
+                next_page_found = False
+                for page in pagination:
+                    # Mevcut sayfayı atlayarak bir sonraki sayfaya git
+                    if page.text.isdigit() and int(page.text) == current_page + 1:
+                        page.click()
+                        print("*************YENİ SAYFAYA GEÇİLDİ***********")
+                        current_page += 1
+                        time.sleep(2)  # Sayfanın yüklenmesi için bekleme süresi
+                        next_page_found = True
+                        break  # Bir sonraki sayfaya geçtikten sonra çık
 
-            if not next_page_found:
-                break  # Eğer başka sayfa yoksa döngüden çık
+                if not next_page_found:
+                    break  # Eğer başka sayfa yoksa döngüden çık
+            else:
+                # Eğer pagination-container yoksa ve review-list mevcutsa yorumları al
+                if yorum_soup.select('ul.review-list'):
+                    break  # Eğer pagination-container yoksa döngüden çık
+                else:
+                    break  # Paginasyon kısmı yoksa döngüden çık
 
     except Exception as e:
         print(f"{otel_ad} için yorumları çekerken hata oluştu: {e}")
