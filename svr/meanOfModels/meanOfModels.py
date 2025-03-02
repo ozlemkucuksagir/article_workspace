@@ -16,7 +16,7 @@ def clean_data(df):
 # Function to save feature labels as a separate image
 def save_feature_labels(features, filename):
     feature_names = {
-        "score": "Score",
+        "score": "User Ratings",
         "hava_alanina_uzakligi": "Distance to Airport",
         "denize_uzakligi": "Distance to Sea",
         "plaj": "Beach",
